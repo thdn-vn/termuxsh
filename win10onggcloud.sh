@@ -17,4 +17,4 @@ wget -O 10.7z 'https://archive.org/download/windows-10.7z_20240424/Windows%2010.
 7za x 10.7z
 rm -rf 10.7z
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
-sudo qemu-system-x86_64 -M q35 -cpu core2duo,+avx -smp sockets=1,cores=4,threads=2 -m 8G -drive file=10.qcow2,aio=threads,if=virtio,cache=unsafe -vga none -device virtio-gpu-pci -device intel-hda -device hda-duplex -device virtio-net-pci,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -device virtio-balloon-pci -device virtio-serial-pci -device virtio-rng-pci -device intel-iommu -vnc :0 -cdrom RTL8139F.iso
+sudo qemu-system-x86_64 -M q35 -cpu core2duo,+avx -smp sockets=1,cores=4,threads=2 -m 8G -drive file=10.qcow2,aio=threads,if=virtio,cache=unsafe -vga none -device virtio-gpu-pci -device intel-hda -device hda-duplex -device virtio-net-pci,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -device virtio-balloon-pci -device virtio-serial-pci -device virtio-rng-pci -device intel-iommu -vnc :0 -cdrom RTL8139F.is
